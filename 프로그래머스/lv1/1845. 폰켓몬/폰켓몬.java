@@ -10,6 +10,7 @@ class Solution {
         int maxKinds = nums.length / 2;
         
         //종류마다 몇 마리가 있는지 세기
+        //HashSet으로 중복을 없앨수도 있음
         for(int num : nums) {
             map.put(num, map.getOrDefault(num,0)+1);
         }
