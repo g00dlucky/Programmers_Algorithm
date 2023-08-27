@@ -56,17 +56,13 @@ class Solution {
     }
 }
 
-//             sb.append(x);
-//             for(int i=0; i<a.length; i++){
-//                 if(sb.toString().contains(a[i])) {
-                    
-//                 }
-//             }
 
-        // int i = 0;
-        // while(true) {
-        //     if(s.contains(a[i])){
-        //         map.put(a[i], map.getOrDefault(a[i],0) + 1);
-        //     }
-        // i++;    
-        // }
+// class Solution {
+//     public int solution(String s) {
+//         String[] strArr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+//         for(int i = 0; i < strArr.length; i++) {
+//             s = s.replaceAll(strArr[i], Integer.toString(i));
+//         }
+//         return Integer.parseInt(s);
+//     }
+// }
