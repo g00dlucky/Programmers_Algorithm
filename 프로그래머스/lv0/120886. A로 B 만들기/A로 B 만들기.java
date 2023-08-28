@@ -8,11 +8,8 @@ class Solution {
         char[] b = after.toCharArray();
         
         Arrays.sort(a); Arrays.sort(b);
-        StringBuilder sb = new StringBuilder();
-        sb.append(a,0,a.length); String c = sb.toString();
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(b,0,b.length); String d = sb2.toString();
-        
+        String c = new String(a);
+        String d = new String(b);
         if(c.equals(d)) {
             answer = 1;
         } else {
