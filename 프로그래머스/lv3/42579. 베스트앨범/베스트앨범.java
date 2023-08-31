@@ -39,23 +39,32 @@ class Solution {
             genres_ordered.add(max_key);
             map.remove(max_key);
         }
-        //장르 내 노래 선정
-        List<Music> result = new ArrayList<>();
-        for(String x : genres_ordered) {
-            
-            List<Music> list = new ArrayList<>();
-            for(int i=0; i<genres.length; i++) {
-                if(genres[i].equals(x)){
-                    list.add(new Music(x,plays[i],i));
-                }
-            }
-            Collections.sort(list, (o1, o2) -> o2.play - o1.play); // 내림차순 소팅
-            result.add(list.get(0));
-            if(list.size() != 1) {
-                result.add(list.get(1));
-            }
-            
+        // 장르 내 노래 선정
+List<Music> result = new ArrayList<>();  // 최종 결과를 저장할 리스트
+for(String x : genres_ordered) {  // 각 장르에 대해서 순회
+    
+    // 해당 장르에 속하는 음악만을 저장할 리스트
+    List<Music> list = new ArrayList<>();
+    
+    // 모든 장르를 검사하여 현재 장르(x)와 일치하는 음악을 찾음
+    for(int i=0; i<genres.length; i++) {
+        if(genres[i].equals(x)){
+            list.add(new Music(x, plays[i], i));  // 일치하는 음악을 리스트에 추가
         }
+    }
+    
+    // 리스트를 play 횟수에 따라 내림차순으로 정렬
+    Collections.sort(list, (o1, o2) -> o2.play - o1.play);
+    
+    // 가장 많이 재생된 음악을 결과에 추가
+    result.add(list.get(0));
+    
+    // 만약 해당 장르에 음악이 1개보다 많다면, 두 번째로 많이 재생된 음악도 결과에 추가
+    if(list.size() != 1) {
+        result.add(list.get(1));
+    }
+}
+
         // print result
         answer = new int[result.size()];
         for(int i=0; i<result.size(); i++){
